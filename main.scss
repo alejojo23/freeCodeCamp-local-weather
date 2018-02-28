@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina');
+@import url('https://fonts.googleapis.com/css?family=Prata');
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+   }
+   @if $fallback {
+    font-size: $fallback;
+   }
+  font-size: $responsive;
+}
+body{
+  background: white;
+  font-family: 'Prata', serif;
+  @include responsive-font(2vw, 16px);
+}
+#middle{
+  min-height: 400px;
+}
+#image{
+  max-height: 350px;
+}
+#day{
+  @include responsive-font(1.5vw, 12px);
+  margin-top: -20px;
+  color: blue;
+}
+#footer{
+  bottom: 0px;
+}
+#temperature{
+  font-family: 'Baloo Bhaina', cursive;
+  @include responsive-font(3.5vw, 22px);
+}
+#switch button{
+  min-width: 150px;
+  cursor:pointer;
+}
+hr{border:0;
+  height: 1.5px; 
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  min-width: 100%;
+  margin-top: -20px;
+}
+@media screen and (max-width:900px){
+  hr{margin-top:8px;}
+}

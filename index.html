@@ -1,0 +1,39 @@
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="main.scss">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <title>Local Weather</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row" id="header">
+              <div class="col-6" id="time">Time</div>
+              <div class="col-6 text-right" id="date">Date</div>
+            </div>
+            <div class="row" id="middle">
+              <div class="col-sm-12 my-auto text-center">
+                <img id="image" style="font-size:100px;"/> <br>
+                <p id="weather"><strong>Weather in words</strong></p>
+                <p id="day">Day of the week</p>
+              </div>
+            </div>
+            <div class="row" id="footer">
+              <div class="col-6" id="temperature">Temperature</div>
+              <div class="col-6 text-right" id="switch">
+                <button class="btn btn-primary" data-text-swap="Change to °C" data-text-original="Change to °F">Change to °F</button>
+              </div>
+              <hr>
+              <div class="col-12 text-center">
+                <span id="location">Ciudad Quemada</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
